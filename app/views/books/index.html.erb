@@ -1,5 +1,21 @@
+<h1>Books</h1>
+
+<p>Title</p>
+  <% @books.each do |book| %>
+  <span><%= book.title %></span>
+　<% end %> 
+　
+   <p>Body</p>
+   <% @books.each do |book| %>
+  <span><%= book.body %></span>
+  <% end %>
+
+ <!--%= link_to "Show", edit_book_path(@book.id) %>-->
+
+<!--新規投稿部分　ここから-->
 <h1>New book</h1>
-<%= form_with model: Book.new do |f| %>
+<%= form_with model: @book do |f| %>
+<!--この＠bookには何も定義されていない！なのになんで普通に表示されるの-->
   <h4>Title</h4>
    <%= f.text_field :title %>
    
@@ -7,5 +23,5 @@
    <%= f.text_area :body %>
    
   <%= f.submit 'Create Book' %>
-  
 <% end %>
+<!--新規投稿部分　ここまで-->
